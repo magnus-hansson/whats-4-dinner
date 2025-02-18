@@ -28,13 +28,23 @@
     <div class="grid gap-6">
         {#each data.dinners as dinner}
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-xl font-semibold mb-2">{dinner.name}</h2>
-                <p class="text-gray-600">
-                    <span class="font-medium">Ingredients:</span> {dinner.ingredients}
-                </p>
-                <p class="text-sm text-gray-500 mt-2">
-                    Added on {formatDate(dinner.createdAt)}
-                </p>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h2 class="text-xl font-semibold mb-2">{dinner.name}</h2>
+                        <p class="text-gray-600">
+                            <span class="font-medium">Ingredients:</span> {dinner.ingredients}
+                        </p>
+                        <p class="text-sm text-gray-500 mt-2">
+                            Added on {formatDate(dinner.createdAt)}
+                        </p>
+                    </div>
+                    <a 
+                        href="/dinners/{dinner.id}/edit"
+                        class="text-indigo-600 hover:text-indigo-800 px-3 py-1 rounded-md hover:bg-indigo-50"
+                    >
+                        Edit
+                    </a>
+                </div>
             </div>
         {:else}
             <p class="text-gray-600 text-center py-8">No dinner ideas yet. Add your first one!</p>
