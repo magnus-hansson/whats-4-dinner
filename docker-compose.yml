@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  whats4dinner:
+    image: node:18-alpine
+    container_name: whats4dinner
+    working_dir: /app
+    command: sh -c "npm install && npm run build && node build"
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - dinner-data:/app/data
+    environment:
+      - NODE_ENV=production
+      - ORIGIN=http://YOUR_NAS_IP:3000
+    restart: unless-stopped
+
+volumes:
+  dinner-data:

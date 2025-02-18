@@ -17,7 +17,7 @@ export const actions = {
         await db.insert(dinners).values({
             name: name.toString(),
             ingredients: ingredients.toString(),
-            createdAt: Date.now()
+            createdAt: new Date() // Changed from Date.now() to new Date()
         });
 
         return { success: true };

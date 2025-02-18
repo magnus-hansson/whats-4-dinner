@@ -7,13 +7,13 @@ A simple web application to store and manage dinner ideas. Instead of detailed r
 - Add new dinner ideas with main ingredients
 - View all stored dinner ideas
 - Chronological listing with Swedish date format (YYYY-DD-MM)
-- SQLite database for data storage
+- Postgres database (using Vercel Postgres)
 - Responsive design with Tailwind CSS
 
 ## Tech Stack
 
 - SvelteKit 5
-- SQLite with Drizzle ORM
+- Vercel Postgres with Drizzle ORM
 - TailwindCSS
 - Vercel deployment ready
 
@@ -30,9 +30,12 @@ A simple web application to store and manage dinner ideas. Instead of detailed r
    npm install
    ```
 
-3. Set up your environment:
-   - Copy `.env.example` to `.env`
-   - The default SQLite database path is `./data.db`
+3. Set up Vercel and database:
+   - Install Vercel CLI: `npm i -g vercel`
+   - Login to Vercel: `vercel login`
+   - Create a new project: `vercel link`
+   - Add Postgres database from Vercel dashboard
+   - Pull environment variables: `vercel env pull`
 
 4. Initialize the database:
    ```bash
@@ -48,8 +51,14 @@ A simple web application to store and manage dinner ideas. Instead of detailed r
 
 ## Deployment
 
-This project is configured for deployment on Vercel. Connect your GitHub repository to Vercel for automatic deployments.
+This project is configured for deployment on Vercel. The easiest way to deploy is:
+
+1. Push your code to GitHub
+2. Import the repository in Vercel
+3. Vercel will automatically detect the SvelteKit configuration
+4. Add a Postgres database from your project settings
+5. Deploy!
 
 ## Local Development
 
-The app uses SQLite for data storage, making it easy to develop locally without any external database dependencies.
+The app uses Vercel Postgres which will work in both development and production. Make sure you have the correct environment variables from your Vercel project settings.

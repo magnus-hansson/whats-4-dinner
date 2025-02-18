@@ -46,3 +46,5 @@ vite.config.ts.timestamp-*
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
